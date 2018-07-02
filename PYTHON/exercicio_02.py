@@ -1,9 +1,15 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 def troca_caixa(texto):
     '''Vogais ficam em caixa alta (maiúsculas)
     Consoantes ficam em caixa baixa (minúsculas)'''
-
+    nova_palavra = ''
+    for letra in texto:
+    	if letra in 'aeiouAEIOU':
+    		nova_palavra = nova_palavra + letra.upper()
+    	else : 
+    		nova_palavra = nova_palavra + letra.lower()	
+    return nova_palavra
 
 def altera_salarios(salarios):
     '''Recebe uma lista de salários e devolva uma lista com os salários
@@ -15,17 +21,41 @@ def altera_salarios(salarios):
     - acima de 5 SM: aumento de 5% 
     Salário mínimo para referência: R$ 724,00
     '''
+    nova_lista = []
+    for sm in salarios :
+    	if sm <= 724.00 in salarios :
+    		sma = sm + ((sm)/100)*20
+    		nova_lista.append(sma)
+    	elif sm > 724.00 and sm <= 1448.00 in salarios :
+    		sma = sm + ((sm)/100)*15
+    		nova_lista.append(sma)
+    	elif sm > 1448.00 and sm <= 3620.00 in salarios :
+    		sma = sm + ((sm)/100)*10
+    		nova_lista.append(sma)
+    	elif sm > 3620.00 in salarios :
+    		sma = sm + ((sm)/100)*5
+    		nova_lista.append(sma)
+    return nova_lista	
 
 def intercalamento_listas(lista1,lista2):
     ''' Usando 'lista1' e 'lista2', ambas do mesmo comprimento,
     crie uma nova lista composta pelo
     intercalamento entre as duas.'''
+    nova_lista = []
+    lista = lista1 + lista2
+    nova_lista = sorted(lista)
+    return nova_lista
 
 def conta_letras(texto):
     '''Receba uma string e devolva um dicionário onde a chave seja uma letra e seu 
     valor correspondente seja a quantidade de vezes que esta letra aparece na string, 
     independente de caixa (maiúscula ou minúscula)'''
-
+    lista = {}
+    for letras in texto :
+    	qtd = texto.count(letras)
+    	lista[letras.lower()] = qtd
+    dic = lista	
+    return 	dic
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0
 total = 0 
